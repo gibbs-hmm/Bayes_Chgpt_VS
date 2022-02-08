@@ -1,5 +1,5 @@
 # Bayes_Chgpt_VS
-
+```text
 "The Bayesian Change Point and Variable Selection Algorithm: Application to the d18O Record of the Plio-Pleistocene"
 By E. Ruggieri and C.E. Lawrence
 
@@ -229,3 +229,4 @@ model = Nx1 vector containing the average inferred model.
 centroid = Nxm matrix containing the centroid solution to the variable selection problem.  A variable is included in the centroid solution at each data point if it was selected for inclusion in more than half of the sampled solutions.
 
 R_2 = R^2 value for the inferred model.
+```
