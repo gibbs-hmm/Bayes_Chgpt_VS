@@ -1,10 +1,10 @@
 # Bayes_Chgpt_VS
-```text
 "The Bayesian Change Point and Variable Selection Algorithm: Application to the d18O Record of the Plio-Pleistocene"
 By E. Ruggieri and C.E. Lawrence
 
 https://www.tandfonline.com/doi/full/10.1080/10618600.2012.707852
 
+```text
 %************************************************************************/
 %* The Bayesian Change Point and Variable Selection algorithm 		*/
 %* - A program to caluclate the posterior probability of a change point */
