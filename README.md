@@ -6,19 +6,19 @@ By E. Ruggieri and C.E. Lawrence
 https://www.tandfonline.com/doi/full/10.1080/10618600.2012.707852
 
 %************************************************************************/
-%* The Bayesian Change Point and Variable Selection algorithm 		      */
+%* The Bayesian Change Point and Variable Selection algorithm 		*/
 %* - A program to caluclate the posterior probability of a change point */
 %* in a time series and the set of predictor variables that best fits   */
-%* each regime of the data set.					                                */
+%* each regime of the data set.					        */
 %*                                                                      */
 %* Please acknowledge the program author on any publication of          */
 %* scientific results based in part on use of the program and           */
 %* cite the following article in which the program was described.       */
 %*                                                                      */
-%* E. Ruggieri and C.E. Lawrence.  The Bayesian Change Point and 	      */
-%* Variable Selection Algorithm: Application to the d18O Record of 	    */
-%* the Plio-Pleistocene, Journal of Computational and Graphical 	      */
-%* Statistics							                                              */
+%* E. Ruggieri and C.E. Lawrence.  The Bayesian Change Point and 	*/
+%* Variable Selection Algorithm: Application to the d18O Record of 	*/
+%* the Plio-Pleistocene, Journal of Computational and Graphical 	*/
+%* Statistics							        */
 %*                                                                      */
 %* Program Author: Eric Ruggieri                                        */
 %* Duquesne University                                                  */
@@ -30,14 +30,14 @@ https://www.tandfonline.com/doi/full/10.1080/10618600.2012.707852
 %* The Bayesian Change Point and Variable Selection algorithn is free 	*/
 %* software: you can redistribute it and/or modify it under the terms 	*/
 %* of the GNU General Public License as published by the Free Software  */
-%* Foundation, either version 3 of the License, or (at your option) 	  */
-%* any later version.							                                      */
+%* Foundation, either version 3 of the License, or (at your option) 	*/
+%* any later version.							*/
 %*                                                                      */
-%* The Bayesian Change Point and Variable Selection algorithm is 	      */
-%* distributed in the hope that it will be useful, but WITHOUT ANY 	    */
-%* WARRANTY; without even the implied warranty of MERCHANTABILITY or 	  */
-%* FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public 	      */
-%* License for more details.					                                  */
+%* The Bayesian Change Point and Variable Selection algorithm is 	*/
+%* distributed in the hope that it will be useful, but WITHOUT ANY 	*/
+%* WARRANTY; without even the implied warranty of MERCHANTABILITY or 	*/
+%* FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public 	*/
+%* License for more details.					        */
 %*                                                                      */
 %* You should have received a copy of the GNU General Public License    */
 %* along with Bayesian Change Point and Variable Selection. If not, see */
