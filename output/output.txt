@@ -1,0 +1,22 @@
+parameters for the multivariate normal prior distribtuion on the regression coefficients, beta.
+0.010000 100.000000
+probability of including or excluding a predictor variable, respectively
+0.500000 0.500000
+parameters for the Scaled Inverse-Chi^2 distribution on the error variance, sigma^2.
+0.106987 5.000000
+maximum number of allowed change points.
+8.000000
+minimun distance between adjacent change points.
+25.000000
+[min_chgpt, v_0, sig_0, k_i, k_e, p_i, p_e].  Parameters used in the likelihood calculation
+25.000000
+5.000000
+0.106987
+0.010000
+100.000000
+0.500000
+0.500000
+number of independent solutions sampled directly from the posterior distribution.
+500.000000
+R^2 value for the inferred model.
+0.830052
