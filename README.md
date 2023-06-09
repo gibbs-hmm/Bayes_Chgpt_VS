@@ -47,6 +47,16 @@ https://www.tandfonline.com/doi/full/10.1080/10618600.2012.707852
 %* Boston, MA 02110-1301, USA.                                          */
 %************************************************************************/
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% There are two versions of the code:
+% Bayes_Chgpt_VS_Scrip.m is used to process the simulated data.
+% Bayes_Chgpt_VS_Scrip_d18O.m is used to process the d18O data.
+%
+% See comments in the .m files.
+%
+% Having two versions of the similar code is very bad practice.
+% We beg forgiveness.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Contents:
 
