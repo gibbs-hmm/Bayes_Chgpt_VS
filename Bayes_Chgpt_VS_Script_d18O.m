@@ -57,16 +57,15 @@
 %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This version works with the simulated data found in 
-% Bayes_Simulation_Short and Bayes_Simulation. 
+% This version works with the provided d18O data. 
 %
-% See Bayes_Chgpt_VS_Script_d18O.m to process d18O data.
+% See Bayes_Chgpt_VS_Scrip.m to process the simulated data.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear;
 %************(1)Load the Data*****************************
-load Bayes_Simulation_Short
-% load Bayes_Simulation
+load d18O
+
 
 %{
 Y = Nx1 column vector of data points
@@ -79,10 +78,11 @@ chgpt_loc = true location of the change points in the data set (Simulations Only
 %}
 
 %*************(2)Define the Parameter Values**************
-noise=1.0;      %The level (variance) of noise to be added to the simulated data
+% BT 2023-06-08
+% noise=1.0;      %The level (variance) of noise to be added to the simulated data
                 %Note: Only add noise to the simulations!
-Q=sqrt(noise)*randn(N,1);
-Y=Y+Q;
+% Q=sqrt(noise)*randn(N,1);
+% Y=Y+Q;
 
 k_max=8;                % Maximum number of allowed change points
 min_chgpt=25;           % Minimum distance between adjacent change points
@@ -100,8 +100,8 @@ parameters = [min_chgpt, v_0, sig_0, k_i, k_e, p_i, p_e];
 for i=1:50:N
     % Groups of 50 are sent in to allow for parallel processing or to
     % provide updates on the progress of the algorithm
-	Py1=DP_exact(i, i+49, x,X,Y,N, parameters);     %To be used with SIMULATIONS
-    %Py1=DP_d18O(i, i+49, x,X,Y,N, parameters);     %To be used with d18O record
+	% Py1=DP_exact(i, i+49, x,X,Y,N, parameters);     %To be used with SIMULATIONS
+    Py1=DP_d18O(i, i+49, x,X,Y,N, parameters);     %To be used with d18O record
     if (i==1)
         Py=Py1;
     else
@@ -151,6 +151,7 @@ chgpt_loc=zeros(1,N);               % The locations/marginal probabilities of a 
 BETA = zeros(m,N);              % Holds the regression coefficients
 
 for i=1:num_samp
+    %{
     %****** Sampling from the Simulated Data Sets ******
     %STEP 3.1 - SAMPLE A NUMBER OF CHANGE POINTS
     num_chgpts = pick_k1(k)-1;  % Since we allow for 0 changepoints, function returns the index of the 'k' vector,
@@ -280,8 +281,8 @@ for i=1:num_samp
     
     %update the model averaged result
     model(1:changepoint)=model(1:changepoint)+X(1:changepoint,:)*beta_hat;
+%}
     
-    %{
     %*** Sampling from the d18O Record*******
     %STEP 3.1 - SAMPLE A NUMBER OF CHANGE POINTS
     num_chgpts = pick_k1(k)-1;  % Since we allow for 0 changepoints, function returns the index of the 'k' vector,
@@ -414,7 +415,6 @@ for i=1:num_samp
     
     %update the model averaged result
     model(1:changepoint)=model(1:changepoint)+X(1:changepoint,:)*beta_hat;
-    %}
 end
 
 BETA=BETA/num_samp;             % Average regression coefficient at each data point
@@ -464,6 +464,7 @@ xlabel('Data Point')
 print(h3, 'fig3.pdf', '-dpdf');
 close(h3);
 
+%{
 %Centroid Solution for Variable Selection - select a variable at a given
 %data point if it was included in over 50% of the models selected
 centroid=zeros(x(N),m);
@@ -484,6 +485,7 @@ ylabel('Variables');
 set(gca,'YTick',1:m)
 print(h4, 'fig4.pdf', '-dpdf');
 close(h4);
+%}
 
 %Calculate R^2 value
 r=0; rr=0;
@@ -496,15 +498,18 @@ R_2=1-rr/r;
 
 %**If data points are not equally spaced, as in the d18O record, this    **
 %**needs to be taken into account to avoid distorted graphs              **
-%{
-real_samp_holder=zeros(x(N),m); x=floor(x);
+
+% real_samp_holder=zeros(x(N),m); x=floor(x);  # BT 2023-06-08
+x=floor(x);
+real_samp_holder=zeros(x(N),m);
 real_BETA=zeros(m, x(N));
 
 for i=1:N-1
     count=x(i);
     while(count<x(i+1))
-        real_samp_holder(count,:)=samp_holder(i,:);
-        real_BETA(:,count) = BETA(:,i);
+        % x(1) = 0 shift count BT 2023-06-07
+        real_samp_holder(count+1,:)=samp_holder(i,:);
+        real_BETA(:,count+1) = BETA(:,i);
         
         count=count+1;
     end
