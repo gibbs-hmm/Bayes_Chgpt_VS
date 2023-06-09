@@ -45,11 +45,21 @@ By E. Ruggieri and C.E. Lawrence
 %* Boston, MA 02110-1301, USA.                                          */
 %************************************************************************/
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% There are two versions of the code:
+% Bayes_Chgpt_VS_Scrip.m is used to process the simulated data.
+% Bayes_Chgpt_VS_Scrip_d18O.m is used to process the d18O data.
+%
+% See comments in the .m files.
+%
+% Having two versions of the similar code is very bad practice.
+% We beg forgiveness.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Contents:
 
 A) Matlab Code:
-   i) Bayes_Chgpt_VS_Script.m
+   i) Bayes_Chgpt_VS_Script.m and Bayes_Chgpt_VS_Script.m 
   ii) DP_Exact.m
  iii) DP_d18O.m
   iv) partition_fn.m
